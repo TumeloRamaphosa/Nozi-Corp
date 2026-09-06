@@ -1,0 +1,100 @@
+{
+  "_schemaNote": "Mission Control skills-library.json overlay. AA workflows/templates → skill content; agent body → agents.json instructions.",
+  "skills": [
+    {
+      "id": "skill_nozi_demo_disclaimer",
+      "name": "Nozi Demo Disclaimer",
+      "description": "Required educational/demo disclaimer and prohibited behaviours",
+      "contentFile": "nozi-demo-disclaimer.md",
+      "agentIds": [
+        "agents-orchestrator",
+        "research-synthesist",
+        "loan-officer-assistant",
+        "fsp-intake-specialist",
+        "financial-analyst",
+        "fpa-analyst",
+        "chief-financial-officer",
+        "legal-compliance-checker",
+        "compliance-auditor",
+        "data-privacy-officer",
+        "fsp-compliance-advisor",
+        "operations-manager"
+      ],
+      "tags": ["compliance", "demo", "disclaimer"]
+    },
+    {
+      "id": "skill_fsp_sa_context",
+      "name": "SA FSP Regulatory Context",
+      "description": "Informational FAIS/FSCA/TCF context for SA FSP demo",
+      "contentFile": "fsp-sa-regulatory-context.md",
+      "agentIds": [
+        "research-synthesist",
+        "fsp-intake-specialist",
+        "legal-compliance-checker",
+        "fsp-compliance-advisor"
+      ],
+      "tags": ["fsp", "south-africa", "regulatory"]
+    },
+    {
+      "id": "skill_mc_task_management",
+      "name": "Mission Control Task Management",
+      "description": "MC JSON data files, task creation, inbox reports",
+      "contentFile": "mc-task-management.md",
+      "agentIds": [
+        "agents-orchestrator",
+        "research-synthesist",
+        "loan-officer-assistant",
+        "fsp-intake-specialist",
+        "financial-analyst",
+        "fpa-analyst",
+        "legal-compliance-checker",
+        "operations-manager"
+      ],
+      "tags": ["mission-control", "tasks", "workflow"]
+    },
+    {
+      "id": "skill_research_synthesis",
+      "name": "Research Synthesis Methodology",
+      "description": "Search strategy, source grading, evidence maps (from agency-agents Research Synthesist)",
+      "contentFile": "research-synthesis-methodology.md",
+      "agentIds": ["research-synthesist"],
+      "tags": ["research", "agency-agents-adapted"]
+    },
+    {
+      "id": "skill_financial_analysis",
+      "name": "Financial Analysis Templates",
+      "description": "Needs analysis memo and scenario templates (from agency-agents Financial Analyst)",
+      "contentFile": "financial-analysis-templates.md",
+      "agentIds": ["financial-analyst", "chief-financial-officer"],
+      "tags": ["finance", "agency-agents-adapted"]
+    },
+    {
+      "id": "skill_fpa_planning",
+      "name": "FP&A Planning Templates",
+      "description": "Planning scenario tables (from agency-agents FP&A Analyst)",
+      "contentFile": "fpa-planning-templates.md",
+      "agentIds": ["fpa-analyst"],
+      "tags": ["finance", "agency-agents-adapted"]
+    },
+    {
+      "id": "skill_compliance_gate",
+      "name": "Compliance Gate Checklist",
+      "description": "Gate memo, gap findings, privacy/controls checks (from agency-agents compliance personas)",
+      "contentFile": "compliance-gate-checklist.md",
+      "agentIds": [
+        "legal-compliance-checker",
+        "compliance-auditor",
+        "data-privacy-officer"
+      ],
+      "tags": ["compliance", "agency-agents-adapted"]
+    },
+    {
+      "id": "skill_orchestrator_status_report",
+      "name": "Orchestrator Status Report",
+      "description": "Pipeline progress and practitioner inbox report template (from agency-agents Orchestrator)",
+      "contentFile": "orchestrator-status-report.md",
+      "agentIds": ["agents-orchestrator"],
+      "tags": ["orchestration", "agency-agents-adapted"]
+    }
+  ]
+}

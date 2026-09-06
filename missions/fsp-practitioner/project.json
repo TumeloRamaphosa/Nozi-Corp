@@ -1,0 +1,26 @@
+{
+  "_schemaNote": "Mission Control projects.json entry. Merged by seed script.",
+  "project": {
+    "id": "proj_fsp_practitioner_demo",
+    "name": "Studex FSP Practitioner Demo",
+    "description": "Educational demo: agency-agents-derived super agents support a South African FSP practitioner through research → intake → needs analysis → compliance gate → inbox report. Not legal or financial advice.",
+    "status": "active",
+    "color": "#0F766E",
+    "teamMembers": [
+      "agents-orchestrator",
+      "research-synthesist",
+      "loan-officer-assistant",
+      "fsp-intake-specialist",
+      "financial-analyst",
+      "fpa-analyst",
+      "chief-financial-officer",
+      "legal-compliance-checker",
+      "compliance-auditor",
+      "data-privacy-officer",
+      "fsp-compliance-advisor",
+      "operations-manager",
+      "me"
+    ],
+    "tags": ["studex", "fsp", "demo", "south-africa"]
+  }
+}

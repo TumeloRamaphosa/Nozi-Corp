@@ -1,0 +1,17 @@
+{
+  "_schemaNote": "Manifest of agents in FSP mission. Full MC overlays live in agents/*.json (seed globs all).",
+  "agentIds": [
+    "agents-orchestrator",
+    "research-synthesist",
+    "loan-officer-assistant",
+    "fsp-intake-specialist",
+    "financial-analyst",
+    "fpa-analyst",
+    "chief-financial-officer",
+    "legal-compliance-checker",
+    "compliance-auditor",
+    "data-privacy-officer",
+    "fsp-compliance-advisor",
+    "operations-manager"
+  ]
+}

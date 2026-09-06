@@ -1,2 +1,68 @@
-Mission Control (https://github.com/MeisnerDan/mission-control) is licensed under AGPL-3.0 and is NOT included or re-licensed in this repository. Run it as separate sibling tooling. For commercial/SaaS/white-label use of Mission Control without AGPL obligations, contact dan@meisner.dev.
-agency-agents (https://github.com/msitarzewski/agency-agents) is a separate project; selected personas may be adapted into this repo with attribution — see NOTICE updates after full scaffold.
+Nozi-Corp Content Repository — Third-Party Notices
+==================================================
+
+This repository contains original content licensed under the MIT License
+(see LICENSE). It also incorporates adapted material and references third-party
+projects that are NOT included as source code in this repository.
+
+---
+
+Mission Control
+---------------
+Repository: https://github.com/MeisnerDan/mission-control
+License: GNU Affero General Public License v3.0 (AGPL-3.0)
+
+Mission Control is an open-source ops UI and autonomous agent daemon. It is
+NOT vendored, copied, or re-licensed in this repository. Run it unmodified as
+a sibling checkout alongside this content repo.
+
+For commercial, SaaS, or white-label use of Mission Control without AGPL
+obligations, contact dan@meisner.dev.
+
+When you run Mission Control with content seeded from this repo, you are
+operating Mission Control itself under AGPL-3.0. This content repo's MIT
+license applies only to the original files in this repository (agents, skills,
+missions, scripts, and documentation).
+
+---
+
+agency-agents (The Agency)
+--------------------------
+Repository: https://github.com/msitarzewski/agency-agents
+License: MIT License
+Copyright (c) 2025 AgentLand Contributors
+
+Ten (10) agent personas in `agents/` are adapted (curated copy + adapter, not
+verbatim dumps) from the agency-agents library (~230 agents upstream). Each
+adapted file includes YAML frontmatter, an "Adapted from agency-agents" header
+citing the upstream path, and MIT attribution to AgentLand Contributors.
+
+Two (2) additional agents (`fsp-intake-specialist`, `fsp-compliance-advisor`)
+are Nozi-Corp originals — thin SA FSP wrappers.
+
+We do NOT redistribute the full agency-agents tree. For the complete upstream
+roster, divisions, and install tooling, see:
+https://github.com/msitarzewski/agency-agents
+
+Upstream MIT license text: https://github.com/msitarzewski/agency-agents/blob/main/LICENSE
+Selection list: scripts/pull-agency-personas.md
+
+---
+
+Orgo
+----
+Website: https://www.orgo.ai/
+Documentation: https://docs.orgo.ai/
+
+Orgo provides cloud Linux desktops used as the documented runtime host for the
+Studex FSP practitioner demo. Orgo is a separate commercial service; it is not
+included in this repository.
+
+---
+
+Educational / Demo Disclaimer
+-----------------------------
+The Studex FSP practitioner scenario is for educational and demonstration
+purposes only. Agent outputs are not legal, financial, or investment advice.
+A licensed South African financial services practitioner must review all
+client-facing material before use.

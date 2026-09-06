@@ -1,0 +1,18 @@
+{
+  "_schemaNote": "Mission Control missions.json overlay. Continuous mission fields inferred from MC README; verify against upstream MC when upgrading.",
+  "mission": {
+    "id": "mission_fsp_practitioner_chain",
+    "title": "FSP Practitioner Demo Chain",
+    "description": "Run the full Studex demo workflow: research → intake → needs analysis → compliance gate → practitioner inbox report.",
+    "status": "active",
+    "projectId": "proj_fsp_practitioner_demo",
+    "taskIds": [
+      "task_fsp_research",
+      "task_fsp_intake",
+      "task_fsp_needs_analysis",
+      "task_fsp_compliance_gate",
+      "task_fsp_inbox_report"
+    ],
+    "tags": ["studex", "fsp", "continuous"]
+  }
+}

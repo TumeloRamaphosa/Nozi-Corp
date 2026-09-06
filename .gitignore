@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node (seed/validate scripts only — no package.json in this content repo)
+node_modules/
+.npm/
+
+# Mission Control sibling (never vendor MC source into this repo)
+mission-control/
+
+# agency-agents upstream clone (curate into agents/, do not commit full tree)
+agency-agents/
+
+# Local seed output / scratch
+.seed-output/
+*.local.json
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log

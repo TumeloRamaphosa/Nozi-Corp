@@ -1,0 +1,112 @@
+{
+  "_schemaNote": "Mission Control tasks.json overlay. Chain: research → intake → needs analysis → compliance gate → inbox report.",
+  "tasks": [
+    {
+      "id": "task_fsp_research",
+      "title": "Research synthesis — SA FSP demo scenario",
+      "description": "Produce graded evidence brief for synthetic demo client. Public sources only. Include demo disclaimer.",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "research-synthesist",
+      "collaborators": [],
+      "blockedBy": [],
+      "estimatedMinutes": 45,
+      "acceptanceCriteria": [
+        "Evidence synthesis map under research/",
+        "Source evaluation table with tiers",
+        "Demo disclaimer included",
+        "Inbox report posted to me"
+      ],
+      "tags": ["fsp", "research", "chain-1"]
+    },
+    {
+      "id": "task_fsp_intake",
+      "title": "Client intake — synthetic demo profile",
+      "description": "Structured intake with loan-officer checklist plus SA FSP placeholders (FAIS record-keeping themes).",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "loan-officer-assistant",
+      "collaborators": ["fsp-intake-specialist"],
+      "blockedBy": ["task_fsp_research"],
+      "estimatedMinutes": 30,
+      "acceptanceCriteria": [
+        "Intake record under research/intake/",
+        "SA FSP section from fsp-intake-specialist",
+        "Missing fields flagged",
+        "Inbox report posted"
+      ],
+      "tags": ["fsp", "intake", "chain-2"]
+    },
+    {
+      "id": "task_fsp_needs_analysis",
+      "title": "Needs analysis memo",
+      "description": "Financial needs analysis with scenarios and planning metrics — options for practitioner review, no product picks.",
+      "importance": "important",
+      "urgency": "not-urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "financial-analyst",
+      "collaborators": ["fpa-analyst", "chief-financial-officer"],
+      "blockedBy": ["task_fsp_intake"],
+      "estimatedMinutes": 40,
+      "acceptanceCriteria": [
+        "Needs Analysis Memo with scenario table",
+        "FP&A planning appendix from fpa-analyst",
+        "CFO executive summary section",
+        "No personalised advice",
+        "Inbox report posted"
+      ],
+      "tags": ["fsp", "needs-analysis", "chain-3"]
+    },
+    {
+      "id": "task_fsp_compliance_gate",
+      "title": "Compliance gate review",
+      "description": "Multi-agent compliance gate: legal, audit, privacy, and SA FSP context. PASS | CONDITIONAL | FAIL.",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "legal-compliance-checker",
+      "collaborators": ["compliance-auditor", "data-privacy-officer", "fsp-compliance-advisor"],
+      "blockedBy": ["task_fsp_needs_analysis"],
+      "estimatedMinutes": 25,
+      "acceptanceCriteria": [
+        "Compliance Gate Memo with explicit result",
+        "Privacy and controls sections included",
+        "SA FSP context from fsp-compliance-advisor",
+        "FAIL blocks downstream",
+        "Inbox report posted"
+      ],
+      "tags": ["fsp", "compliance", "chain-4"]
+    },
+    {
+      "id": "task_fsp_inbox_report",
+      "title": "Compile practitioner inbox report",
+      "description": "Orchestrator-led final summary with operations hygiene check — aggregate full chain for practitioner.",
+      "importance": "important",
+      "urgency": "not-urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "agents-orchestrator",
+      "collaborators": ["operations-manager"],
+      "blockedBy": ["task_fsp_compliance_gate"],
+      "estimatedMinutes": 20,
+      "acceptanceCriteria": [
+        "Pipeline status report complete",
+        "Links to all artefacts",
+        "Practitioner action items listed",
+        "Demo disclaimer on final report"
+      ],
+      "tags": ["fsp", "report", "chain-5"]
+    }
+  ]
+}
