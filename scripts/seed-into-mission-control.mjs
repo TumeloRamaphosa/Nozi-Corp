@@ -8,7 +8,7 @@
  * Default target: ../mission-control/mission-control/data/
  */
 
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -17,6 +17,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
 const DEFAULT_TARGET = resolve(REPO_ROOT, '../mission-control/mission-control/data');
 const MISSION_DIR = join(REPO_ROOT, 'missions/fsp-practitioner');
+const AGENTS_DIR = join(REPO_ROOT, 'agents');
 const SKILLS_DIR = join(REPO_ROOT, 'skills');
 
 const args = process.argv.slice(2);
@@ -71,10 +72,20 @@ async function buildSkillsOverlay() {
   return skills;
 }
 
+async function loadAgentOverlays() {
+  const files = (await readdir(AGENTS_DIR)).filter((f) => f.endsWith('.json'));
+  const agents = [];
+  for (const file of files) {
+    const agent = await readJson(join(AGENTS_DIR, file));
+    agents.push(agent);
+  }
+  return agents.sort((a, b) => a.id.localeCompare(b.id));
+}
+
 async function planSeed() {
   const projectOverlay = await readJson(join(MISSION_DIR, 'project.json'));
   const tasksOverlay = await readJson(join(MISSION_DIR, 'tasks.json'));
-  const agentsOverlay = await readJson(join(MISSION_DIR, 'agents.overlay.json'));
+  const agentOverlays = await loadAgentOverlays();
   const missionOverlay = await readJson(join(MISSION_DIR, 'mission.json'));
   const skills = await buildSkillsOverlay();
 
@@ -92,7 +103,7 @@ async function planSeed() {
       tasks: mergeById(existingTasks.tasks, tasksOverlay.tasks),
     },
     'agents.json': {
-      agents: mergeById(existingAgents.agents, agentsOverlay.agents),
+      agents: mergeById(existingAgents.agents, agentOverlays),
     },
     'skills-library.json': {
       skills: mergeById(existingSkills.skills, skills),
@@ -105,7 +116,7 @@ async function planSeed() {
   return { merged, summary: {
     project: projectOverlay.project.id,
     tasks: tasksOverlay.tasks.map((t) => t.id),
-    agents: agentsOverlay.agents.map((a) => a.id),
+    agents: agentOverlays.map((a) => a.id),
     skills: skills.map((s) => s.id),
     mission: missionOverlay.mission.id,
   }};

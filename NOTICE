@@ -32,15 +32,20 @@ Repository: https://github.com/msitarzewski/agency-agents
 License: MIT License
 Copyright (c) 2025 AgentLand Contributors
 
-Selected agent personas in `agents/` are adapted (not verbatim copies) from
-personas in the agency-agents library. Each adapted file includes an
-"Adapted from agency-agents" header citing the upstream path.
+Ten (10) agent personas in `agents/` are adapted (curated copy + adapter, not
+verbatim dumps) from the agency-agents library (~230 agents upstream). Each
+adapted file includes YAML frontmatter, an "Adapted from agency-agents" header
+citing the upstream path, and MIT attribution to AgentLand Contributors.
 
-We do NOT redistribute the full agency-agents tree (~150k★ persona library).
-For the complete upstream roster, divisions, and install tooling, see:
+Two (2) additional agents (`fsp-intake-specialist`, `fsp-compliance-advisor`)
+are Nozi-Corp originals — thin SA FSP wrappers.
+
+We do NOT redistribute the full agency-agents tree. For the complete upstream
+roster, divisions, and install tooling, see:
 https://github.com/msitarzewski/agency-agents
 
-Upstream MIT license text is reproduced in docs/agency-agents.md.
+Upstream MIT license text: https://github.com/msitarzewski/agency-agents/blob/main/LICENSE
+Selection list: scripts/pull-agency-personas.md
 
 ---
 

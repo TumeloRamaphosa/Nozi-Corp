@@ -21,7 +21,7 @@ Orgo cloud desktop (documented runtime)
 | Component | Role | In this repo? |
 |-----------|------|---------------|
 | [Mission Control](https://github.com/MeisnerDan/mission-control) | Ops UI + autonomous agent daemon | No — clone sibling |
-| [agency-agents](https://github.com/msitarzewski/agency-agents) | Persona library (~150k★) | No — 4 personas adapted with attribution |
+| [agency-agents](https://github.com/msitarzewski/agency-agents) | Persona library (~230 upstream) | No — **10 adapted** + 2 Nozi wrappers (MIT, attributed) |
 | [Orgo](https://www.orgo.ai/) | Cloud Linux desktop for always-on demos | Documented only |
 | **Nozi-Corp** | Curated agents, skills, FSP mission, seed scripts | **Yes** |
 
@@ -111,16 +111,22 @@ docs/
 
 ## Curated Agents
 
-| Agent | Source |
-|-------|--------|
-| `market-research-analyst` | Adapted from agency-agents Trend Researcher |
-| `business-strategist` | Adapted from agency-agents Business Strategist |
-| `ops-coordinator` | Adapted from agency-agents Studio Operations |
-| `compliance-gatekeeper` | Adapted from agency-agents Legal Compliance Checker |
-| `fsp-intake-specialist` | Nozi-Corp original |
-| `fsp-compliance-advisor` | Nozi-Corp original |
+**10 adapted** from agency-agents (MIT) + **2 Nozi SA wrappers**. Pattern: YAML frontmatter `.md` + MC `.json` overlay. See [docs/agency-agents.md](docs/agency-agents.md).
 
-Details: [docs/agency-agents.md](docs/agency-agents.md)
+| Agent | Source | Demo role |
+|-------|--------|-----------|
+| `agents-orchestrator` | agency-agents | Pipeline lead / final report |
+| `research-synthesist` | agency-agents | Research |
+| `loan-officer-assistant` | agency-agents | Intake lead |
+| `fsp-intake-specialist` | Nozi original | SA intake wrapper |
+| `financial-analyst` | agency-agents | Needs analysis lead |
+| `fpa-analyst` | agency-agents | Planning collaborator |
+| `chief-financial-officer` | agency-agents | Strategic framing |
+| `legal-compliance-checker` | agency-agents | Compliance gate lead |
+| `compliance-auditor` | agency-agents | Controls review |
+| `data-privacy-officer` | agency-agents | Privacy review |
+| `fsp-compliance-advisor` | Nozi original | SA compliance wrapper |
+| `operations-manager` | agency-agents | Ops summary |
 
 ## Licenses
 

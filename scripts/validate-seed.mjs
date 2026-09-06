@@ -6,7 +6,7 @@
  *   node scripts/validate-seed.mjs
  */
 
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -43,35 +43,55 @@ async function readJson(path) {
   return JSON.parse(raw);
 }
 
+async function loadAgentsFromDir() {
+  const files = (await readdir(AGENTS_DIR)).filter((f) => f.endsWith('.json'));
+  const agents = [];
+  for (const file of files) {
+    agents.push(await readJson(join(AGENTS_DIR, file)));
+  }
+  return agents;
+}
+
 async function main() {
   console.log('Validating Nozi-Corp seed overlays...\n');
 
   const project = await readJson(join(MISSION_DIR, 'project.json'));
   const tasks = await readJson(join(MISSION_DIR, 'tasks.json'));
-  const agents = await readJson(join(MISSION_DIR, 'agents.overlay.json'));
+  const agentManifest = await readJson(join(MISSION_DIR, 'agents.overlay.json'));
   const skills = await readJson(join(MISSION_DIR, 'skills.overlay.json'));
   const mission = await readJson(join(MISSION_DIR, 'mission.json'));
+  const agents = await loadAgentsFromDir();
 
-  const agentIds = new Set(agents.agents.map((a) => a.id));
+  const agentIds = new Set(agents.map((a) => a.id));
   const skillIds = new Set(skills.skills.map((s) => s.id));
   const taskIds = new Set(tasks.tasks.map((t) => t.id));
   const projectId = project.project.id;
+  const manifestIds = new Set(agentManifest.agentIds ?? []);
 
-  // Agent JSON files exist for each overlay agent
-  for (const agent of agents.agents) {
+  // Manifest matches agents/*.json
+  for (const id of manifestIds) {
+    if (!agentIds.has(id)) fail(`Manifest agent missing JSON: agents/${id}.json`);
+  }
+  for (const agent of agents) {
+    if (!manifestIds.has(agent.id)) warn(`agents/${agent.id}.json not in mission manifest`);
+  }
+
+  for (const agent of agents) {
     const mdPath = join(AGENTS_DIR, `${agent.id}.md`);
     const jsonPath = join(AGENTS_DIR, `${agent.id}.json`);
     if (!existsSync(mdPath)) fail(`Missing agent markdown: agents/${agent.id}.md`);
-    else ok(`agents/${agent.id}.md`);
-
-    if (!existsSync(jsonPath)) warn(`Optional agent JSON missing: agents/${agent.id}.json`);
+    else {
+      const md = await readFile(mdPath, 'utf8');
+      if (!md.startsWith('---\n')) fail(`agents/${agent.id}.md missing YAML frontmatter`);
+      else ok(`agents/${agent.id}.md (frontmatter)`);
+    }
+    if (!existsSync(jsonPath)) fail(`Missing agent JSON: agents/${agent.id}.json`);
 
     for (const sid of agent.skillIds ?? []) {
       if (!skillIds.has(sid)) fail(`Agent ${agent.id} references unknown skillId: ${sid}`);
     }
   }
 
-  // Skills content files
   for (const skill of skills.skills) {
     const contentPath = join(SKILLS_DIR, skill.contentFile);
     if (!existsSync(contentPath)) fail(`Missing skill content: skills/${skill.contentFile}`);
@@ -82,15 +102,13 @@ async function main() {
     }
   }
 
-  // Project team members
   for (const member of project.project.teamMembers ?? []) {
     if (member !== 'me' && !agentIds.has(member)) {
-      fail(`Project team member not in agents overlay: ${member}`);
+      fail(`Project team member not in agents/: ${member}`);
     }
   }
-  ok(`project ${projectId}`);
+  ok(`project ${projectId} (${agents.length} agents)`);
 
-  // Tasks
   const expectedChain = [
     'task_fsp_research',
     'task_fsp_intake',
@@ -115,7 +133,6 @@ async function main() {
     }
   }
 
-  // Chain order
   for (let i = 1; i < expectedChain.length; i++) {
     const task = tasks.tasks.find((t) => t.id === expectedChain[i]);
     const prev = expectedChain[i - 1];
@@ -125,7 +142,6 @@ async function main() {
   }
   ok(`task chain: ${expectedChain.join(' → ')}`);
 
-  // Mission references
   if (mission.mission.projectId !== projectId) {
     fail('mission.projectId does not match project.id');
   }

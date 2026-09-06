@@ -30,7 +30,7 @@ Nozi-Corp is a **content-only** repository. Runtime orchestration lives in sibli
 ┌─────────────────────────────────────────────────────────────────────────┐
 │              agency-agents (upstream reference, MIT)                    │
 │  https://github.com/msitarzewski/agency-agents                          │
-│  ~150k★ persona library — NOT vendored; 4 personas adapted for FSP demo │
+│  ~230 agents upstream; 10 adapted for FSP demo + 2 Nozi wrappers           │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -72,13 +72,13 @@ Task chain (seeded by `missions/fsp-practitioner/tasks.json`):
 research → intake → needs analysis → compliance gate → inbox report
 ```
 
-| Step | Task ID | Lead agent |
-|------|---------|------------|
-| 1 | `task_fsp_research` | `market-research-analyst` |
-| 2 | `task_fsp_intake` | `fsp-intake-specialist` |
-| 3 | `task_fsp_needs_analysis` | `business-strategist` |
-| 4 | `task_fsp_compliance_gate` | `compliance-gatekeeper` (+ `fsp-compliance-advisor`) |
-| 5 | `task_fsp_inbox_report` | `ops-coordinator` |
+| Step | Task ID | Lead agent | Collaborators |
+|------|---------|------------|---------------|
+| 1 | `task_fsp_research` | `research-synthesist` | — |
+| 2 | `task_fsp_intake` | `loan-officer-assistant` | `fsp-intake-specialist` |
+| 3 | `task_fsp_needs_analysis` | `financial-analyst` | `fpa-analyst`, `chief-financial-officer` |
+| 4 | `task_fsp_compliance_gate` | `legal-compliance-checker` | `compliance-auditor`, `data-privacy-officer`, `fsp-compliance-advisor` |
+| 5 | `task_fsp_inbox_report` | `agents-orchestrator` | `operations-manager` |
 
 `blockedBy` enforces sequential execution. Final artefact is an inbox report for the practitioner (`me` agent).
 

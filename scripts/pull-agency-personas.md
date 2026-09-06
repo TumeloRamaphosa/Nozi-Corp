@@ -1,64 +1,63 @@
 # Pulling Personas from agency-agents
 
-This document records **which** upstream personas we curate into Nozi-Corp, **why**, and **how to attribute** them. We do not clone or vendor the full [agency-agents](https://github.com/msitarzewski/agency-agents) tree.
+Curated **copy + adapter** list for the Nozi-Corp Studex FSP practitioner demo. Not a blind dump of the ~230-agent upstream tree.
 
-## Upstream Facts
+## Upstream
 
-| Item | Value |
-|------|-------|
-| Repository | https://github.com/msitarzewski/agency-agents |
-| License | MIT (Copyright (c) 2025 AgentLand Contributors) |
-| Structure | Division folders (`engineering/`, `product/`, `support/`, …) with one `.md` persona per agent |
-| Scale | Large public roster (~150k★); browse full list in upstream README |
+| Field | Value |
+|-------|-------|
+| Repo | https://github.com/msitarzewski/agency-agents |
+| License | MIT — Copyright (c) 2025 AgentLand Contributors |
+| Install app | https://agencyagents.app (optional; we do not use for this content repo) |
 
-## Curation Policy
+## FSP Demo Allowlist
 
-1. **Small set only** — adapt 3–6 personas relevant to the FSP demo; link upstream paths for everything else.
-2. **Adapt, don't dump** — rewrite for SA FSP / Mission Control context; add "Adapted from agency-agents" header with upstream path.
-3. **Nozi originals** — FSP-specific roles (intake, SA compliance advisor) are Nozi-Corp originals (MIT).
-4. **NOTICE** — all adapted personas listed in repo `NOTICE` and in the table below.
+Each row is adapted into `agents/<id>.md` (YAML frontmatter + Identity/Mission/Rules/Workflows) and `agents/<id>.json` (MC overlay).
 
-## Selected Personas (FSP Demo)
+| Nozi agent ID | Upstream path | Adaptation notes |
+|---------------|---------------|------------------|
+| `agents-orchestrator` | `specialized/agents-orchestrator.md` | Pipeline lead; status report → `skill_orchestrator_status_report` |
+| `chief-financial-officer` | `specialized/chief-financial-officer.md` | Executive summary on needs analysis |
+| `financial-analyst` | `finance/finance-financial-analyst.md` | Needs memo templates → `skill_financial_analysis` |
+| `fpa-analyst` | `finance/finance-fpa-analyst.md` | Planning tables → `skill_fpa_planning` |
+| `legal-compliance-checker` | `support/support-legal-compliance-checker.md` | Compliance gate lead |
+| `compliance-auditor` | `security/security-compliance-auditor.md` | Gap/evidence review on gate |
+| `data-privacy-officer` | `specialized/data-privacy-officer.md` | POPIA-adjacent privacy section on gate |
+| `research-synthesist` | `research/research-synthesist.md` | Evidence synthesis → `skill_research_synthesis` |
+| `operations-manager` | `specialized/operations-manager.md` | Ops summary on final report |
+| `loan-officer-assistant` | `specialized/loan-officer-assistant.md` | Intake lead for demo profiles |
 
-| Nozi-Corp agent | Upstream path | Rationale |
-|-----------------|---------------|-----------|
-| `market-research-analyst` | `product/product-trend-researcher.md` | Desk research, competitive/trend briefs for FSP landscape |
-| `business-strategist` | `specialized/business-strategist.md` | Needs analysis, option framing for practitioner review |
-| `ops-coordinator` | `project-management/project-management-studio-operations.md` | Workflow ops, inbox report compilation |
-| `compliance-gatekeeper` | `support/support-legal-compliance-checker.md` | Compliance-adjacent gate (adapted — not legal counsel) |
+## Nozi originals (not from agency-agents)
 
-### Nozi-Corp originals (not from agency-agents)
+| Agent | Role |
+|-------|------|
+| `fsp-intake-specialist` | Thin SA wrapper on intake (FAIS placeholders) |
+| `fsp-compliance-advisor` | Thin SA wrapper on compliance gate (FSCA/TCF context) |
 
-| Agent | Purpose |
-|-------|---------|
-| `fsp-intake-specialist` | Structured demo client intake / fact-find |
-| `fsp-compliance-advisor` | SA FAIS/TCF contextual notes for practitioner education |
+## Not selected (link upstream)
 
-## Not Curated (link upstream)
+Examples adjacent but out of FSP demo scope — browse upstream instead of copying:
 
-For divisions we do not copy, browse upstream directly:
+- `finance/finance-investment-researcher.md` — investment research depth
+- `product/product-trend-researcher.md` — replaced by `research-synthesist` for evidence grading
+- Full `engineering/`, `marketing/`, `paid-media/` divisions
 
-- Engineering — https://github.com/msitarzewski/agency-agents/tree/main/engineering
-- Marketing — https://github.com/msitarzewski/agency-agents/tree/main/marketing
-- Finance — https://github.com/msitarzewski/agency-agents/tree/main/finance
-- Security — https://github.com/msitarzewski/agency-agents/tree/main/security
+Division index: https://github.com/msitarzewski/agency-agents/tree/main
 
-Example adjacent persona **not** copied (reference only): `finance/finance-investment-researcher.md` — investment research depth beyond FSP demo scope.
+## Adding a persona
 
-## How to Add a New Persona
-
-1. Pick an upstream `.md` file; read license (MIT) and persona scope.
-2. Create `agents/<nozi-id>.md` with attribution header.
-3. Add optional `agents/<nozi-id>.json` for Mission Control `agents.json` fields.
-4. Append row to this document and `NOTICE`.
-5. Update `missions/*/agents.overlay.json` if the persona joins a mission.
+1. Confirm upstream MIT license and cite path in `.md` header.
+2. Create `agents/<id>.md` with YAML frontmatter + four body sections.
+3. Create `agents/<id>.json` with MC `instructions` + `skillIds`.
+4. Extract workflows/templates to `skills/` if needed; register in `skills.overlay.json`.
+5. Append row here and in `NOTICE`; add to `missions/fsp-practitioner/agents.overlay.json` manifest.
 6. Run `node scripts/validate-seed.mjs`.
 
-## Upstream MIT License (excerpt)
+## Attribution
 
-```
-MIT License
-Copyright (c) 2025 AgentLand Contributors
-```
+All adapted files include:
 
-Full text: https://github.com/msitarzewski/agency-agents/blob/main/LICENSE
+```markdown
+> **Adapted from agency-agents** — upstream: `path/to/agent.md`
+> Licensed MIT (Copyright 2025 AgentLand Contributors).
+```
