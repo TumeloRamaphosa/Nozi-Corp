@@ -95,6 +95,126 @@
       "contentFile": "orchestrator-status-report.md",
       "agentIds": ["agents-orchestrator"],
       "tags": ["orchestration", "agency-agents-adapted"]
+    },
+    {
+      "id": "skill_corp_compliance",
+      "name": "Corporate Compliance (Privacy & DPA)",
+      "description": "Privacy regulation, DPA review, data subject requests (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/compliance.md",
+      "agentIds": ["fsp-compliance-advisor", "legal-compliance-checker"],
+      "tags": ["compliance", "corporate-skills-adapted", "popia"]
+    },
+    {
+      "id": "skill_corp_compliance_tracking",
+      "name": "Corporate Compliance Tracking",
+      "description": "Compliance frameworks, audit readiness, gap analysis (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/compliance-tracking.md",
+      "agentIds": ["fsp-compliance-advisor", "legal-compliance-checker"],
+      "tags": ["compliance", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_legal_risk_assessment",
+      "name": "Corporate Legal Risk Assessment",
+      "description": "Legal risk evaluation and mitigation framing (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/legal-risk-assessment.md",
+      "agentIds": ["fsp-compliance-advisor", "legal-compliance-checker"],
+      "tags": ["compliance", "legal", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_contract_review",
+      "name": "Corporate Contract Review",
+      "description": "Clause-by-clause contract review playbook (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/contract-review.md",
+      "agentIds": ["legal-compliance-checker", "fsp-compliance-advisor"],
+      "tags": ["legal", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_nda_triage",
+      "name": "Corporate NDA Triage",
+      "description": "NDA automated triage and red-flag checklist (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/nda-triage.md",
+      "agentIds": ["legal-compliance-checker", "fsp-compliance-advisor"],
+      "tags": ["legal", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_3_statements",
+      "name": "Corporate 3-Statement Models",
+      "description": "Integrated IS/BS/CF model completion and validation (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/3-statements.md",
+      "agentIds": ["financial-analyst"],
+      "tags": ["finance", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_dcf_model",
+      "name": "Corporate DCF Model",
+      "description": "DCF valuation methodology and model structure (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/dcf-model.md",
+      "agentIds": ["financial-analyst"],
+      "tags": ["finance", "valuation", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_comps_analysis",
+      "name": "Corporate Comps Analysis",
+      "description": "Comparable company analysis playbook (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/comps-analysis.md",
+      "agentIds": ["financial-analyst"],
+      "tags": ["finance", "valuation", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_check_model",
+      "name": "Corporate Check Model",
+      "description": "Financial model auditing and error checks (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/check-model.md",
+      "agentIds": ["financial-analyst"],
+      "tags": ["finance", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_unit_economics",
+      "name": "Corporate Unit Economics",
+      "description": "Unit economics analysis for demo needs analysis (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/unit-economics.md",
+      "agentIds": ["financial-analyst"],
+      "tags": ["finance", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_financial_plan",
+      "name": "Corporate Financial Plan",
+      "description": "Comprehensive financial planning workflow (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/financial-plan.md",
+      "agentIds": ["loan-officer-assistant", "fsp-intake-specialist"],
+      "tags": ["finance", "planning", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_dd_checklist",
+      "name": "Corporate DD Checklist",
+      "description": "Due diligence checklist for demo intake (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/dd-checklist.md",
+      "agentIds": ["loan-officer-assistant", "fsp-intake-specialist"],
+      "tags": ["finance", "due-diligence", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_client_review",
+      "name": "Corporate Client Review",
+      "description": "Client review meeting prep and portfolio summary (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/client-review.md",
+      "agentIds": ["loan-officer-assistant", "fsp-intake-specialist"],
+      "tags": ["finance", "client-review", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_knowledge_synthesis",
+      "name": "Corporate Knowledge Synthesis",
+      "description": "Cross-source deduplication and attributed synthesis (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/knowledge-synthesis.md",
+      "agentIds": ["agents-orchestrator", "research-synthesist"],
+      "tags": ["research", "synthesis", "corporate-skills-adapted"]
+    },
+    {
+      "id": "skill_corp_risk_assessment",
+      "name": "Corporate Risk Assessment",
+      "description": "Operational risk register and mitigation matrix (from awesome-claude-corporate-skills)",
+      "contentFile": "corporate/risk-assessment.md",
+      "agentIds": ["agents-orchestrator", "research-synthesist"],
+      "tags": ["risk", "corporate-skills-adapted"]
     }
   ]
 }

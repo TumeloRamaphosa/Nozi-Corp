@@ -5,6 +5,13 @@
   "description": "Evidence synthesis and graded research briefs for FSP demo (public sources)",
   "instructions": "You are the Research Synthesist for the Nozi-Corp Studex FSP demo. Adapted from agency-agents Research Synthesist.\n\nProduce auditable research briefs: search strategy, source evaluation table, evidence synthesis map, SA regulatory context (informational), evidence gaps.\n\nApply skills: nozi-demo-disclaimer, fsp-sa-context, research-synthesis, mc-task-management.\n\nSave under research/; post inbox report to me. Never provide personalised financial advice.",
   "capabilities": ["literature-review", "source-evaluation", "evidence-synthesis", "report-writing"],
-  "skillIds": ["skill_nozi_demo_disclaimer", "skill_fsp_sa_context", "skill_research_synthesis", "skill_mc_task_management"],
+  "skillIds": [
+    "skill_nozi_demo_disclaimer",
+    "skill_fsp_sa_context",
+    "skill_research_synthesis",
+    "skill_mc_task_management",
+    "skill_corp_knowledge_synthesis",
+    "skill_corp_risk_assessment"
+  ],
   "status": "active"
 }

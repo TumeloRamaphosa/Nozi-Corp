@@ -8,6 +8,7 @@ This repository holds **content only** (agents, skills, missions, seed scripts).
 
 ```
 agency-agents (MIT, upstream personas)  ──adapt──►  Nozi-Corp (MIT, this repo)
+awesome-claude-corporate-skills (MIT, Enrike) ──adapt──►  skills/corporate/
                                                         │
                                                         │ seed
                                                         ▼
@@ -22,6 +23,7 @@ Orgo cloud desktop (documented runtime)
 |-----------|------|---------------|
 | [Mission Control](https://github.com/MeisnerDan/mission-control) | Ops UI + autonomous agent daemon | No — clone sibling |
 | [agency-agents](https://github.com/msitarzewski/agency-agents) | Persona library (~230 upstream) | No — **10 adapted** + 2 Nozi wrappers (MIT, attributed) |
+| [awesome-claude-corporate-skills](https://github.com/w95/awesome-claude-corporate-skills) | Corporate role playbooks (166 upstream) | No — **15 curated** for FSP demo (MIT, Enrike, attributed) |
 | [Orgo](https://www.orgo.ai/) | Cloud Linux desktop for always-on demos | Documented only |
 | **Nozi-Corp** | Curated agents, skills, FSP mission, seed scripts | **Yes** |
 
@@ -97,16 +99,20 @@ See [Orgo introduction](https://docs.orgo.ai/introduction).
 ```
 agents/           Curated personas (.md + optional .json MC overlay)
 skills/           Knowledge modules for MC skills-library
+  corporate/      Curated corporate role playbooks (15 tier-1)
 missions/
   fsp-practitioner/   Demo project, task chain, agent/skill overlays
 scripts/
   seed-into-mission-control.mjs
   validate-seed.mjs
   pull-agency-personas.md   Selection list + attribution
+  pull-corporate-skills.md  Corporate skills allowlist
+  adapt-corporate-skills.mjs  Regenerate skills/corporate/ from upstream
 docs/
   architecture.md
   agpl-and-commercial.md
   agency-agents.md
+  corporate-skills.md
 ```
 
 ## Curated Agents
@@ -128,6 +134,10 @@ docs/
 | `fsp-compliance-advisor` | Nozi original | SA compliance wrapper |
 | `operations-manager` | agency-agents | Ops summary |
 
+## Curated Corporate Skills
+
+**15 adapted** from awesome-claude-corporate-skills (MIT, Enrike) — finance, legal/compliance, and executive playbooks for the FSP demo. See [docs/corporate-skills.md](docs/corporate-skills.md).
+
 ## Licenses
 
 | Artifact | License |
@@ -135,6 +145,7 @@ docs/
 | This repo (original content) | [MIT](LICENSE) |
 | Mission Control (sibling) | [AGPL-3.0](https://github.com/MeisnerDan/mission-control/blob/main/LICENSE) — commercial use: dan@meisner.dev |
 | agency-agents (adapted personas) | MIT — see [NOTICE](NOTICE) |
+| awesome-claude-corporate-skills (adapted playbooks) | MIT (Enrike) — see [NOTICE](NOTICE) |
 
 See [docs/agpl-and-commercial.md](docs/agpl-and-commercial.md).
 
