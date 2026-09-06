@@ -1,0 +1,48 @@
+{
+  "_schemaNote": "Mission Control skills-library.json overlay. Content loaded from skills/*.md at seed time.",
+  "skills": [
+    {
+      "id": "skill_nozi_demo_disclaimer",
+      "name": "Nozi Demo Disclaimer",
+      "description": "Required educational/demo disclaimer and prohibited behaviours for FSP demo",
+      "contentFile": "nozi-demo-disclaimer.md",
+      "agentIds": [
+        "market-research-analyst",
+        "business-strategist",
+        "ops-coordinator",
+        "compliance-gatekeeper",
+        "fsp-intake-specialist",
+        "fsp-compliance-advisor"
+      ],
+      "tags": ["compliance", "demo", "disclaimer"]
+    },
+    {
+      "id": "skill_fsp_sa_context",
+      "name": "SA FSP Regulatory Context",
+      "description": "Informational FAIS/FSCA/TCF context for South African FSP demo scenarios",
+      "contentFile": "fsp-sa-regulatory-context.md",
+      "agentIds": [
+        "market-research-analyst",
+        "business-strategist",
+        "compliance-gatekeeper",
+        "fsp-intake-specialist",
+        "fsp-compliance-advisor"
+      ],
+      "tags": ["fsp", "south-africa", "regulatory"]
+    },
+    {
+      "id": "skill_mc_task_management",
+      "name": "Mission Control Task Management",
+      "description": "MC JSON data files, task creation, inbox reports, gen:context",
+      "contentFile": "mc-task-management.md",
+      "agentIds": [
+        "market-research-analyst",
+        "business-strategist",
+        "ops-coordinator",
+        "compliance-gatekeeper",
+        "fsp-intake-specialist"
+      ],
+      "tags": ["mission-control", "tasks", "workflow"]
+    }
+  ]
+}

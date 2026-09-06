@@ -1,0 +1,110 @@
+{
+  "_schemaNote": "Mission Control tasks.json overlay. Chain: research → intake → needs analysis → compliance gate → inbox report. blockedBy enforces order.",
+  "tasks": [
+    {
+      "id": "task_fsp_research",
+      "title": "Research SA FSP landscape for demo scenario",
+      "description": "Produce a trend/regulatory desk brief for the synthetic demo client profile. Public sources only. Include demo disclaimer.",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "market-research-analyst",
+      "collaborators": [],
+      "blockedBy": [],
+      "estimatedMinutes": 45,
+      "acceptanceCriteria": [
+        "Markdown brief saved under research/",
+        "Demo disclaimer included",
+        "Sources cited (FSCA/public)",
+        "Inbox report posted to me"
+      ],
+      "tags": ["fsp", "research", "chain-1"]
+    },
+    {
+      "id": "task_fsp_intake",
+      "title": "Client intake — synthetic demo profile",
+      "description": "Structure the demo client fact-find from brain-dump or delegation. Capture goals, horizon, risk attitude placeholders per FAIS record-keeping themes.",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "fsp-intake-specialist",
+      "collaborators": [],
+      "blockedBy": ["task_fsp_research"],
+      "estimatedMinutes": 30,
+      "acceptanceCriteria": [
+        "Intake record under research/intake/",
+        "Missing fields flagged",
+        "Handoff notes for business-strategist",
+        "Inbox report posted"
+      ],
+      "tags": ["fsp", "intake", "chain-2"]
+    },
+    {
+      "id": "task_fsp_needs_analysis",
+      "title": "Needs analysis memo",
+      "description": "Analyse intake + research outputs. Frame strategic options for practitioner review — no product recommendations.",
+      "importance": "important",
+      "urgency": "not-urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "business-strategist",
+      "collaborators": [],
+      "blockedBy": ["task_fsp_intake"],
+      "estimatedMinutes": 40,
+      "acceptanceCriteria": [
+        "Needs Analysis Memo with options table",
+        "Open questions routed to decisions.json if needed",
+        "No personalised advice",
+        "Inbox report posted"
+      ],
+      "tags": ["fsp", "needs-analysis", "chain-3"]
+    },
+    {
+      "id": "task_fsp_compliance_gate",
+      "title": "Compliance gate review",
+      "description": "Review all artefacts for demo disclaimer, advice-like language, and intake completeness. PASS | CONDITIONAL | FAIL.",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "compliance-gatekeeper",
+      "collaborators": ["fsp-compliance-advisor"],
+      "blockedBy": ["task_fsp_needs_analysis"],
+      "estimatedMinutes": 25,
+      "acceptanceCriteria": [
+        "Compliance Gate Memo with explicit result",
+        "Flags documented for practitioner",
+        "FAIL blocks downstream (documented in notes)",
+        "Inbox report posted"
+      ],
+      "tags": ["fsp", "compliance", "chain-4"]
+    },
+    {
+      "id": "task_fsp_inbox_report",
+      "title": "Compile practitioner inbox report",
+      "description": "Aggregate research, intake, needs analysis, and compliance gate into a single practitioner-facing inbox summary.",
+      "importance": "important",
+      "urgency": "not-urgent",
+      "kanban": "not-started",
+      "projectId": "proj_fsp_practitioner_demo",
+      "milestoneId": null,
+      "assignedTo": "ops-coordinator",
+      "collaborators": [],
+      "blockedBy": ["task_fsp_compliance_gate"],
+      "estimatedMinutes": 20,
+      "acceptanceCriteria": [
+        "Chain status table complete",
+        "Links to all artefacts",
+        "Practitioner action items listed",
+        "Demo disclaimer on final report"
+      ],
+      "tags": ["fsp", "report", "chain-5"]
+    }
+  ]
+}

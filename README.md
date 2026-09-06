@@ -1,12 +1,137 @@
 # Nozi-Corp
 
-Studex domain workspace for an **artificial expertise** demo: Studex super agents supporting a financial services practitioner.
+**Studex** domain content for an *artificial expertise* demo: super agents supporting a **South African financial services practitioner**. Educational and demonstration use only — **not legal, tax, or financial advice**.
 
-This repo holds **content only** (agents, skills, missions, seed scripts). Runtime tooling lives elsewhere:
+This repository holds **content only** (agents, skills, missions, seed scripts). Runtime tooling runs as unmodified siblings or documented external services.
 
-- [Mission Control](https://github.com/MeisnerDan/mission-control) — AGPL-3.0 ops UI / daemon (run unmodified as a sibling)
-- [agency-agents](https://github.com/msitarzewski/agency-agents) — agent persona library to draw from
-- Orgo desktop — always-on host for the demo
+## Architecture
 
-> Scaffold in progress. See `NOTICE` for third-party licenses.
+```
+agency-agents (MIT, upstream personas)  ──adapt──►  Nozi-Corp (MIT, this repo)
+                                                        │
+                                                        │ seed
+                                                        ▼
+Mission Control (AGPL-3.0, sibling)  ◄── orchestrates tasks, agents, inbox
+        │
+        │ hosted on
+        ▼
+Orgo cloud desktop (documented runtime)
+```
 
+| Component | Role | In this repo? |
+|-----------|------|---------------|
+| [Mission Control](https://github.com/MeisnerDan/mission-control) | Ops UI + autonomous agent daemon | No — clone sibling |
+| [agency-agents](https://github.com/msitarzewski/agency-agents) | Persona library (~150k★) | No — 4 personas adapted with attribution |
+| [Orgo](https://www.orgo.ai/) | Cloud Linux desktop for always-on demos | Documented only |
+| **Nozi-Corp** | Curated agents, skills, FSP mission, seed scripts | **Yes** |
+
+See [docs/architecture.md](docs/architecture.md) for the full diagram and data flow.
+
+## Quick Start
+
+### 1. Clone siblings
+
+```bash
+# This repo (content)
+git clone <this-repo-url> nozi-corp
+cd nozi-corp
+
+# Mission Control (runtime — AGPL-3.0, unmodified)
+git clone https://github.com/MeisnerDan/mission-control.git ../mission-control
+cd ../mission-control/mission-control
+pnpm install
+```
+
+Expected layout:
+
+```
+parent/
+├── nozi-corp/                 # this repo
+└── mission-control/
+    └── mission-control/       # MC app (package.json here)
+        └── data/              # seed target
+```
+
+### 2. Validate and seed content
+
+```bash
+cd nozi-corp
+
+node scripts/validate-seed.mjs
+node scripts/seed-into-mission-control.mjs --dry-run
+node scripts/seed-into-mission-control.mjs
+```
+
+Regenerate Mission Control context:
+
+```bash
+cd ../mission-control/mission-control && pnpm gen:context
+```
+
+### 3. Run Mission Control
+
+```bash
+cd ../mission-control/mission-control
+pnpm dev
+# UI: http://localhost:3000
+```
+
+Open the **Studex FSP Practitioner Demo** project and run the task chain:
+
+`research → intake → needs analysis → compliance gate → inbox report`
+
+### 4. Run on Orgo (optional)
+
+Orgo provides a persistent cloud Linux desktop for agent runtimes. Mission Control and Claude Code run **inside** the Orgo VM — Orgo is the host, not the agent.
+
+1. Create a computer: [Orgo quickstart](https://docs.orgo.ai/quickstart)
+2. SSH or VNC into the desktop
+3. Clone `nozi-corp` and `mission-control` as siblings
+4. Seed and start MC as above
+5. Use the daemon (`/daemon`) for autonomous task execution
+
+See [Orgo introduction](https://docs.orgo.ai/introduction).
+
+## Repository Layout
+
+```
+agents/           Curated personas (.md + optional .json MC overlay)
+skills/           Knowledge modules for MC skills-library
+missions/
+  fsp-practitioner/   Demo project, task chain, agent/skill overlays
+scripts/
+  seed-into-mission-control.mjs
+  validate-seed.mjs
+  pull-agency-personas.md   Selection list + attribution
+docs/
+  architecture.md
+  agpl-and-commercial.md
+  agency-agents.md
+```
+
+## Curated Agents
+
+| Agent | Source |
+|-------|--------|
+| `market-research-analyst` | Adapted from agency-agents Trend Researcher |
+| `business-strategist` | Adapted from agency-agents Business Strategist |
+| `ops-coordinator` | Adapted from agency-agents Studio Operations |
+| `compliance-gatekeeper` | Adapted from agency-agents Legal Compliance Checker |
+| `fsp-intake-specialist` | Nozi-Corp original |
+| `fsp-compliance-advisor` | Nozi-Corp original |
+
+Details: [docs/agency-agents.md](docs/agency-agents.md)
+
+## Licenses
+
+| Artifact | License |
+|----------|---------|
+| This repo (original content) | [MIT](LICENSE) |
+| Mission Control (sibling) | [AGPL-3.0](https://github.com/MeisnerDan/mission-control/blob/main/LICENSE) — commercial use: dan@meisner.dev |
+| agency-agents (adapted personas) | MIT — see [NOTICE](NOTICE) |
+
+See [docs/agpl-and-commercial.md](docs/agpl-and-commercial.md).
+
+## Disclaimer
+
+All Studex FSP practitioner scenarios are for **training and workflow demonstration**. A licensed South African financial services practitioner must review and approve any material before client use.
