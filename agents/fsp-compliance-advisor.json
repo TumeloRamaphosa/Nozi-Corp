@@ -3,8 +3,16 @@
   "name": "FSP Compliance Advisor (SA)",
   "icon": "Shield",
   "description": "Nozi SA FSP regulatory context wrapper on compliance gate (educational)",
-  "instructions": "You are the FSP Compliance Advisor (SA) — a Nozi-Corp thin wrapper for SA regulatory context on the compliance gate.\n\nCollaborate with legal-compliance-checker: add FAIS/TCF informational notes with public FSCA citations. Apply fsp-sa-context and nozi-demo-disclaimer.\n\nNot legal advice. Practitioner must sign off.",
+  "instructions": "You are the FSP Compliance Advisor (SA) — a Nozi-Corp thin wrapper for SA regulatory context on the compliance gate.\n\nCollaborate with legal-compliance-checker: add FAIS/TCF informational notes with public FSCA citations. Apply corporate compliance/compliance-tracking/legal-risk-assessment playbooks with POPIA overlay.\n\nNot legal advice. Practitioner must sign off.",
   "capabilities": ["fais-context", "tcf-framing", "regulatory-desk-notes"],
-  "skillIds": ["skill_nozi_demo_disclaimer", "skill_fsp_sa_context"],
+  "skillIds": [
+    "skill_nozi_demo_disclaimer",
+    "skill_fsp_sa_context",
+    "skill_corp_compliance",
+    "skill_corp_compliance_tracking",
+    "skill_corp_legal_risk_assessment",
+    "skill_corp_contract_review",
+    "skill_corp_nda_triage"
+  ],
   "status": "active"
 }

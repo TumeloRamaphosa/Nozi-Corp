@@ -49,6 +49,39 @@ Selection list: scripts/pull-agency-personas.md
 
 ---
 
+awesome-claude-corporate-skills
+-------------------------------
+Repository: https://github.com/w95/awesome-claude-corporate-skills
+Curator license: MIT License
+Copyright (c) 2026 Enrike
+
+Fifteen (15) corporate role playbooks in `skills/corporate/` are adapted
+(curated copy + adapter, not verbatim dumps of the full 166-skill catalog) from
+the awesome-claude-corporate-skills collection. Each adapted file includes an
+"Adapted from w95/awesome-claude-corporate-skills" header citing the upstream
+path and primary source (Anthropic FSP, Anthropic KWP, etc.).
+
+Individual upstream skills may have their own licenses beyond the curator MIT
+license. We prefer Anthropic FSP/KWP/Custom sources; see per-file headers and
+docs/corporate-skills.md for the tier-1 allowlist.
+
+We do NOT redistribute the full corporate-skills tree, reference subdocs,
+scripts, or skills outside the FSP demo allowlist. For the complete catalog:
+https://github.com/w95/awesome-claude-corporate-skills
+
+Upstream MIT license text: https://github.com/w95/awesome-claude-corporate-skills/blob/main/LICENSE
+Selection list: scripts/pull-corporate-skills.md
+
+Per-skill sources (tier-1 allowlist):
+- compliance, compliance-tracking, legal-risk-assessment, contract-review,
+  nda-triage — Anthropic KWP (06-legal-compliance)
+- 3-statements, dcf-model, comps-analysis, check-model, unit-economics,
+  financial-plan, dd-checklist, client-review — Anthropic FSP
+  (02-finance-accounting)
+- knowledge-synthesis, risk-assessment — Anthropic KWP (01-executive-leadership)
+
+---
+
 Orgo
 ----
 Website: https://www.orgo.ai/
