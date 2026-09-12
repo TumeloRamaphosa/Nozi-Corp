@@ -1,0 +1,35 @@
+{
+  "_schemaNote": "Skills overlay for Coffee Sales mission. Resolved to content by seed script.",
+  "skills": [
+    {
+      "id": "skill_coffee_research",
+      "name": "Coffee Research Methodology",
+      "description": "Search strategy, source grading, and evidence synthesis for coffee market research.",
+      "contentFile": "coffee-research-methodology.md"
+    },
+    {
+      "id": "skill_opportunity_qualification",
+      "name": "Opportunity Qualification Rubric",
+      "description": "Scoring and verification framework for sales leads.",
+      "contentFile": "opportunity-qualification-rubric.md"
+    },
+    {
+      "id": "skill_channel_analysis",
+      "name": "Channel Analysis Templates",
+      "description": "Margin models, scenario tables, and route-to-market frameworks.",
+      "contentFile": "channel-analysis-templates.md"
+    },
+    {
+      "id": "skill_sa_coffee_compliance",
+      "name": "SA Coffee Compliance Guide",
+      "description": "Regulatory context for importing and distributing coffee in South Africa.",
+      "contentFile": "sa-coffee-compliance-guide.md"
+    },
+    {
+      "id": "skill_coffee_pipeline_status_report",
+      "name": "Coffee Pipeline Status Report",
+      "description": "Template for daily aggregated pipeline reports.",
+      "contentFile": "coffee-pipeline-status-report.md"
+    }
+  ]
+}

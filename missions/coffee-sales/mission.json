@@ -1,0 +1,18 @@
+{
+  "_schemaNote": "Mission Control missions.json overlay. Coffee Sales task chain.",
+  "mission": {
+    "id": "mission_coffee_sales_chain",
+    "title": "Coffee Sales SA Chain",
+    "description": "Run the full coffee sales workflow: market research → opportunity intake → channel strategy → compliance gate → inbox report.",
+    "status": "active",
+    "projectId": "proj_coffee_sales_sa",
+    "taskIds": [
+      "task_coffee_market_research",
+      "task_sales_opportunity_intake",
+      "task_channel_strategy_analysis",
+      "task_compliance_gate",
+      "task_coffee_inbox_report"
+    ],
+    "tags": ["coffee", "sales", "continuous"]
+  }
+}

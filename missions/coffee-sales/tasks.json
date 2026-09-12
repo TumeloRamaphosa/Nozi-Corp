@@ -1,0 +1,115 @@
+{
+  "_schemaNote": "Mission Control tasks.json overlay. Chain: coffee-market-research → opportunity-intake → channel-strategy → compliance-gate → inbox-report.",
+  "tasks": [
+    {
+      "id": "task_coffee_market_research",
+      "title": "Coffee market research — SA retail and online channels",
+      "description": "Produce graded evidence brief for SA coffee sales opportunities. Public sources only. Include Rwanda supply alignment and demo disclaimer.",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_coffee_sales_sa",
+      "milestoneId": null,
+      "assignedTo": "coffee-market-researcher",
+      "collaborators": [],
+      "blockedBy": [],
+      "estimatedMinutes": 90,
+      "acceptanceCriteria": [
+        "Evidence synthesis map under RESEARCH/",
+        "Source evaluation table with tiers",
+        "Rwanda supply alignment checked",
+        "Demo disclaimer included",
+        "Inbox report posted to me"
+      ],
+      "tags": ["coffee", "research", "chain-1"]
+    },
+    {
+      "id": "task_sales_opportunity_intake",
+      "title": "Sales opportunity intake — qualified lead register",
+      "description": "Structured intake from research brief. Build opportunity register with verified contacts, fit scores, and next actions.",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_coffee_sales_sa",
+      "milestoneId": null,
+      "assignedTo": "sales-opportunity-scout",
+      "collaborators": [],
+      "blockedBy": ["task_coffee_market_research"],
+      "estimatedMinutes": 90,
+      "acceptanceCriteria": [
+        "Opportunity register under RESEARCH/",
+        "Verified contacts where possible",
+        "Fit scores with evidence",
+        "Next actions specified",
+        "Inbox report posted"
+      ],
+      "tags": ["coffee", "intake", "chain-2"]
+    },
+    {
+      "id": "task_channel_strategy_analysis",
+      "title": "Channel strategy memo — route-to-market analysis",
+      "description": "Analyse distribution channels, pricing models, margins, and scenarios. No product picks. Options for human review.",
+      "importance": "important",
+      "urgency": "not-urgent",
+      "kanban": "not-started",
+      "projectId": "proj_coffee_sales_sa",
+      "milestoneId": null,
+      "assignedTo": "channel-strategy-analyst",
+      "collaborators": ["compliance-regulatory-scout"],
+      "blockedBy": ["task_sales_opportunity_intake"],
+      "estimatedMinutes": 90,
+      "acceptanceCriteria": [
+        "Channel strategy memo under PLANS/",
+        "Margin tables with assumptions",
+        "Scenario analysis (base/upside/downside)",
+        "No personalised advice",
+        "Inbox report posted"
+      ],
+      "tags": ["coffee", "strategy", "chain-3"]
+    },
+    {
+      "id": "task_compliance_gate",
+      "title": "Compliance gate — SA regulatory and import requirements",
+      "description": "Multi-agent compliance gate: SA food safety, import/export, business registration. PASS | CONDITIONAL | FAIL.",
+      "importance": "important",
+      "urgency": "urgent",
+      "kanban": "not-started",
+      "projectId": "proj_coffee_sales_sa",
+      "milestoneId": null,
+      "assignedTo": "compliance-regulatory-scout",
+      "collaborators": [],
+      "blockedBy": ["task_channel_strategy_analysis"],
+      "estimatedMinutes": 60,
+      "acceptanceCriteria": [
+        "Compliance gate memo under GUIDES/",
+        "PASS / CONDITIONAL / FAIL explicit result",
+        "SA and Rwanda regulatory sections",
+        "FAIL blocks downstream",
+        "Inbox report posted"
+      ],
+      "tags": ["coffee", "compliance", "chain-4"]
+    },
+    {
+      "id": "task_coffee_inbox_report",
+      "title": "Compile daily inbox report",
+      "description": "Orchestrator-led final summary — aggregate full chain for practitioner with next-day priorities.",
+      "importance": "important",
+      "urgency": "not-urgent",
+      "kanban": "not-started",
+      "projectId": "proj_coffee_sales_sa",
+      "milestoneId": null,
+      "assignedTo": "coffee-orchestrator",
+      "collaborators": [],
+      "blockedBy": ["task_compliance_gate"],
+      "estimatedMinutes": 60,
+      "acceptanceCriteria": [
+        "Pipeline status report complete",
+        "Links to all artefacts",
+        "Practitioner action items listed",
+        "Next-day priorities",
+        "Demo disclaimer on final report"
+      ],
+      "tags": ["coffee", "report", "chain-5"]
+    }
+  ]
+}

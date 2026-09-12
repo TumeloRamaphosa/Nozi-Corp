@@ -1,0 +1,19 @@
+{
+  "_schemaNote": "Mission Control projects.json entry. Coffee Sales Agent OS project.",
+  "project": {
+    "id": "proj_coffee_sales_sa",
+    "name": "Nozi-Corp Coffee Sales SA",
+    "description": "Find coffee sales and distribution opportunities in South Africa and online, aligned with Rwanda sourcing plan. Agent-coordinated research, opportunity qualification, channel strategy, and compliance.",
+    "status": "active",
+    "color": "#6B4F2E",
+    "teamMembers": [
+      "coffee-market-researcher",
+      "sales-opportunity-scout",
+      "channel-strategy-analyst",
+      "compliance-regulatory-scout",
+      "coffee-orchestrator",
+      "me"
+    ],
+    "tags": ["coffee", "south-africa", "rwanda", "sales", "distribution"]
+  }
+}
